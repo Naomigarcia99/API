@@ -7,12 +7,29 @@
     <link rel="stylesheet" href="/css/styles.css" />
   </head>
   <body>
-    <div class="container text-center mt-5">
-      <div class="row mt-5">
-        <div class="col">
-          <h2>Ready to laugh?</h2>
-          <p id="joke"></p>
-          <button type="button" class="btn btn-primary" onclick="captureJoke()">Next joke</button>
+    <nav class="navbar">
+      <div class="container-fluid">Weather</div>
+    </nav>
+    <div
+      class="container mt-5"
+    >
+      <div class="row justify-content-center mt-5">
+        <div
+          class="col-md-8 d-flex justify-content-center align-content-center text-center mt-5"
+        >
+          <div class="card shadow">
+            <div class="card-body mx-5 align-content-center">
+              <h2 class="card-title mb-5">Ready to laugh?</h2>
+              <p class="card-text mb-5" id="joke"></p>
+              <button
+                type="button"
+                class="btn btn-primary"
+                onclick="captureJoke()"
+              >
+                Next joke
+              </button>
+            </div>
+          </div>
         </div>
       </div>
     </div>
