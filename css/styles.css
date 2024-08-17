@@ -11996,4 +11996,29 @@ body {
     width: 70rem;
     height: 20rem;
   }
+}
+.button-group {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+}
+
+.button-group .btn {
+  margin-bottom: 10px;
+  width: 100%;
+}
+
+@media (min-width: 768px) {
+  .button-group {
+    flex-direction: row;
+    justify-content: center;
+  }
+  .button-group .btn {
+    margin-bottom: 0;
+    margin-right: 10px;
+  }
+  .button-group .btn:last-child {
+    margin-right: 0;
+  }
 }/*# sourceMappingURL=styles.css.map */
