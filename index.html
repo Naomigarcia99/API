@@ -10,9 +10,7 @@
     <nav class="navbar">
       <div class="container-fluid">Weather</div>
     </nav>
-    <div
-      class="container mt-5"
-    >
+    <div class="container mt-5">
       <div class="row justify-content-center mt-5">
         <div
           class="col-md-8 d-flex justify-content-center align-content-center text-center mt-5"
@@ -21,9 +19,32 @@
             <div class="card-body mx-5 align-content-center">
               <h2 class="card-title mb-5">Ready to laugh?</h2>
               <p class="card-text mb-5" id="joke"></p>
+              <div class="button-group">
+                <button
+                  type="button"
+                  class="btn btn-danger"
+                  onclick="keepReports(1)"
+                >
+                  Bad
+                </button>
+                <button
+                  type="button"
+                  class="btn btn-warning"
+                  onclick="keepReports(2)"
+                >
+                  Average
+                </button>
+                <button
+                  type="button"
+                  class="btn btn-success"
+                  onclick="keepReports(3)"
+                >
+                  Good
+                </button>
+              </div>
               <button
                 type="button"
-                class="btn btn-primary"
+                class="btn btn-primary mt-5 mb-5"
                 onclick="captureJoke()"
               >
                 Next joke
