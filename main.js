@@ -1,3 +1,6 @@
+let reportJokes = [];
+let currentJoke = "";
+
 function captureJoke() {
   fetch("https://icanhazdadjoke.com/", {
     headers: {
@@ -10,7 +13,10 @@ function captureJoke() {
       }
       return res.json();
     })
-    .then((data) => printJoke(data.joke))
+    .then((data) => {
+      currentJoke = data.joke;
+      printJoke(data.joke);
+    })
     .catch((error) => printJoke("Error:" + error));
 }
 
@@ -20,3 +26,19 @@ function printJoke(joke) {
 }
 
 captureJoke();
+
+function keepReports(score) {
+  if (!currentJoke) return;
+  const existingReport = reportJokes.find((e) => e.joke === currentJoke);
+  if (existingReport) {
+    existingReport.score = score;
+    existingReport.date = new Date().toISOString();
+  } else {
+    reportJokes.push({
+      joke: currentJoke,
+      score: score,
+      date: new Date().toISOString(),
+    });
+  }
+  console.log(reportJokes);
+}
