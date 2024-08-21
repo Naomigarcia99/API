@@ -1,13 +1,23 @@
 let reportJokes = [];
 let currentJoke = "";
 let weather = "";
+let newJoke = "";
+let useFirstApi = true;
 
 function captureJoke() {
-  fetch("https://icanhazdadjoke.com/", {
-    headers: {
-      Accept: "application/json",
-    },
-  })
+  const url = useFirstApi
+    ? "https://icanhazdadjoke.com/"
+    : "https://api.chucknorris.io/jokes/random";
+
+  const options = useFirstApi
+    ? {
+        headers: {
+          Accept: "application/json",
+        },
+      }
+    : {};
+
+  fetch(url, options)
     .then((res) => {
       if (!res.ok) {
         throw new Error(`HTTP error! status: ${res.status}`);
@@ -15,8 +25,13 @@ function captureJoke() {
       return res.json();
     })
     .then((data) => {
-      currentJoke = data.joke;
-      printJoke(data.joke);
+      if (useFirstApi) {
+        currentJoke = data.joke;
+      } else {
+        currentJoke = data.value;
+      }
+      printJoke(currentJoke);
+      useFirstApi = !useFirstApi;
     })
     .catch((error) => printJoke("Error:" + error));
 }
