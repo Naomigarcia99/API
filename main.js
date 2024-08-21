@@ -1,5 +1,6 @@
 let reportJokes = [];
 let currentJoke = "";
+let weather = "";
 
 function captureJoke() {
   fetch("https://icanhazdadjoke.com/", {
@@ -42,3 +43,27 @@ function keepReports(score) {
   }
   console.log(reportJokes);
 }
+
+function captureWeather() {
+  fetch("https://wttr.in/Barcelona?format=j1")
+    .then((res) => {
+      if (!res.ok) {
+        throw new Error(`HTTP error! status: ${res.status}`);
+      }
+      return res.json();
+    })
+    .then((data) => {
+      weather = data.current_condition[0];
+      printWeather(weather);
+    })
+    .catch((error) => printWeather("Error:" + error));
+}
+
+function printWeather(weather) {
+  const temperature = weather.temp_C;
+  const description = weather.weatherDesc[0].value;
+  const print = document.getElementById("weather");
+  print.textContent = `${temperature}ºC, ${description}`;
+}
+
+captureWeather();
