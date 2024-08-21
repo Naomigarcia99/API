@@ -62,8 +62,8 @@ function captureWeather() {
 function printWeather(weather) {
   const temperature = weather.temp_C;
   const description = weather.weatherDesc[0].value;
-  const print = document.getElementById("weather");
-  print.textContent = `${temperature}ºC, ${description}`;
+  const printT = document.getElementById("weather");
+  printT.textContent = `${temperature}ºC / ${description}`;
 }
 
 captureWeather();
