@@ -78,7 +78,29 @@ function printWeather(weather) {
   const temperature = weather.temp_C;
   const description = weather.weatherDesc[0].value;
   const printT = document.getElementById("weather");
-  printT.textContent = `${temperature}ºC / ${description}`;
+  printT.textContent = `${temperature}ºC  /`;
+
+  const weatherIcons = {
+    "Partly cloudy": "images/clouds.png",
+    Cloudy: "images/clouds.png",
+    Overcast: "images/clouds.png",
+    Rain: "images/rain.png",
+    Showers: "images/rain.png",
+    Sunny: "images/sun.png",
+    Clear: "images/sun.png",
+    Snow: "images/snow.png",
+    Blizzard: "images/snow.png",
+    Sleet: "images/snow.png",
+    Thunderstorm: "images/storm.png",
+    "Heavy rain": "images/storm.png",
+    Fog: "images/fog.png",
+    Mist: "images/fog.png",
+    Wind: "images/coldwind.png",
+    Windy: "images/coldwind.png",
+  };
+
+  const weatherIcon = document.getElementById("weather-icon");
+  weatherIcon.src = weatherIcons[description];
 }
 
 captureWeather();

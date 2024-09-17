@@ -8,49 +8,60 @@
   </head>
   <body>
     <nav class="navbar">
-      <div class="container-fluid" id="weather">Loading weather...</div>
+      <div class="container weather-container">
+        <div id="weather">Loading weather...</div>
+        <img src="images/error.png" alt="weather-icon" id="weather-icon" />
+      </div>
     </nav>
-    <div class="container mt-5">
-      <div class="row justify-content-center mt-5">
+    <div class="container my-5">
+      <div class="row">
+        <div class="col">
+          <div class="top-image"></div>
+        </div>
+      </div>
+      <div class="row justify-content-center">
         <div
-          class="col-md-8 d-flex justify-content-center align-content-center text-center mt-5"
+          class="col-md-8 d-flex justify-content-center align-content-center text-center"
         >
-          <div class="card shadow">
-            <div class="card-body mx-5 align-content-center">
-              <h2 class="card-title mb-5">Ready to laugh?</h2>
-              <p class="card-text mb-5" id="joke"></p>
-              <div class="button-group">
-                <button
-                  type="button"
-                  class="btn btn-danger"
-                  onclick="keepReports(1)"
-                >
-                  Bad
-                </button>
-                <button
-                  type="button"
-                  class="btn btn-warning"
-                  onclick="keepReports(2)"
-                >
-                  Average
-                </button>
-                <button
-                  type="button"
-                  class="btn btn-success"
-                  onclick="keepReports(3)"
-                >
-                  Good
-                </button>
-              </div>
+          <div class="content-container">
+            <h2 class="title">Ready to laugh?</h2>
+            <p class="text my-4" id="joke"></p>
+            <div class="button-group">
               <button
                 type="button"
-                class="btn btn-primary mt-5 mb-5"
-                onclick="captureJoke()"
+                class="btn btn-danger"
+                onclick="keepReports(1)"
               >
-                Next joke
+                Bad
+              </button>
+              <button
+                type="button"
+                class="btn btn-warning"
+                onclick="keepReports(2)"
+              >
+                Average
+              </button>
+              <button
+                type="button"
+                class="btn btn-success"
+                onclick="keepReports(3)"
+              >
+                Good
               </button>
             </div>
+            <button
+              type="button"
+              class="btn btn-primary mt-4"
+              onclick="captureJoke()"
+            >
+              Next joke
+            </button>
           </div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col">
+          <div class="bottom-image"></div>
         </div>
       </div>
     </div>
