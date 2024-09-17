@@ -3,6 +3,8 @@ let currentJoke = "";
 let weather = "";
 let newJoke = "";
 let useFirstApi = true;
+let currentIndex = 0;
+let currentIndex2 = 0;
 
 function captureJoke() {
   const url = useFirstApi
@@ -82,21 +84,21 @@ function printWeather(weather) {
 
   const weatherIcons = {
     "Partly cloudy": "images/clouds.png",
-    Cloudy: "images/clouds.png",
-    Overcast: "images/clouds.png",
-    Rain: "images/rain.png",
-    Showers: "images/rain.png",
-    Sunny: "images/sun.png",
-    Clear: "images/sun.png",
-    Snow: "images/snow.png",
-    Blizzard: "images/snow.png",
-    Sleet: "images/snow.png",
-    Thunderstorm: "images/storm.png",
+    "Cloudy": "images/clouds.png",
+    "Overcast": "images/clouds.png",
+    "Rain": "images/rain.png",
+    "Showers": "images/rain.png",
+    "Sunny": "images/sun.png",
+    "Clear": "images/sun.png",
+    "Snow": "images/snow.png",
+    "Blizzard": "images/snow.png",
+    "Sleet": "images/snow.png",
+    "Thunderstorm": "images/storm.png",
     "Heavy rain": "images/storm.png",
-    Fog: "images/fog.png",
-    Mist: "images/fog.png",
-    Wind: "images/coldwind.png",
-    Windy: "images/coldwind.png",
+    "Fog": "images/fog.png",
+    "Mist": "images/fog.png",
+    "Wind": "images/coldwind.png",
+    "Windy": "images/coldwind.png",
   };
 
   const weatherIcon = document.getElementById("weather-icon");
@@ -104,3 +106,25 @@ function printWeather(weather) {
 }
 
 captureWeather();
+
+const backgrounds = [
+  "images/blob_3.png",
+  "images/blob_33.png",
+  "images/blob_44.png",
+];
+
+const littleBackgrounds = [
+  "images/blob_11.png",
+  "images/blob_22.png",
+  "images/blob_2.png",
+  "images/blob_1.png",
+];
+
+function changeBackground() {
+  currentIndex = (currentIndex + 1) % backgrounds.length;
+  currentIndex2 = (currentIndex2 + 1) % littleBackgrounds.length;
+  document.body.style.backgroundImage = `url(${backgrounds[currentIndex]})`;
+  document.querySelectorAll(".bottom-image, .top-image").forEach((div) => {
+    div.style.backgroundImage = `url(${littleBackgrounds[currentIndex2]})`;
+  });
+}
