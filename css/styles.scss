@@ -63,6 +63,11 @@ body {
   }
 }
 
+button img {
+  width: 50%; /* Ajusta el tamaño de la imagen según sea necesario */
+  height: auto; /* Mantiene la proporción de la imagen */
+}
+
 .navbar {
   font-weight: bold;
 }
